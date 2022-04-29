@@ -1,0 +1,23 @@
+string LaunchTime = Console.ReadLine();
+            string[] HHMMLaunchTime = LaunchTime.Split(' ');
+            string TravelTime = Console.ReadLine();
+            string[] HHMMTravelTime = TravelTime.Split(' ');
+
+            string[] HHMMBlastTime = new string[1];
+
+            int mm = ((Convert.ToInt32(HHMMLaunchTime[1]) + Convert.ToInt32(HHMMTravelTime[1])) <= 59) ?
+            Convert.ToInt32(HHMMLaunchTime[1]) + Convert.ToInt32(HHMMTravelTime[1]) :
+            ((Convert.ToInt32(HHMMLaunchTime[1]) + Convert.ToInt32(HHMMTravelTime[1])) % 60);
+
+            int hh = ((Convert.ToInt32(HHMMLaunchTime[1]) + Convert.ToInt32(HHMMTravelTime[1])) <= 59) ?
+                Convert.ToInt32(HHMMLaunchTime[0]) + Convert.ToInt32(HHMMTravelTime[0]) :
+            (Convert.ToInt32(HHMMLaunchTime[0]) + Convert.ToInt32(HHMMTravelTime[0]) +
+            ((Convert.ToInt32(HHMMLaunchTime[1]) + Convert.ToInt32(HHMMTravelTime[1])) / 60));
+
+            HHMMBlastTime[0] = hh.ToString();
+            HHMMBlastTime[1] = mm.ToString();
+
+            Console.WriteLine(string.Join(" ", HHMMBlastTime));
+            //if ((Convert.ToInt32(HHMMLaunchTime[1]) + Convert.ToInt32(HHMMTravelTime[1])) > 59)
+
+            Console.ReadLine();
